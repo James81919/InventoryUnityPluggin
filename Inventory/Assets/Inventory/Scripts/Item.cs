@@ -1,21 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System;
 
 public enum ItemType {MANA, HEALTH, WEAPON};
 public enum Quality {COMMON,UNCOMMON,RARE,EPIC,LEGENDARY,ARTIFACT}
 
-public class Item : MonoBehaviour 
+public struct EffectType
 {
-    /// <summary>
-    /// The current item type
-    /// </summary>
-    public ItemType type;
+    string name;
+    int value;
+}
 
-    /// <summary>
-    /// The items quality
-    /// </summary>
-    public Quality quality;
+public class Item : MonoBehaviour
+{
+    private ItemCustomizer itemCustomiser;
 
+    [Header("Sprites")]
     /// <summary>
     /// The item's neutral sprite
     /// </summary>
@@ -25,6 +26,17 @@ public class Item : MonoBehaviour
     /// The item's highlighted sprite
     /// </summary>
     public Sprite spriteHighlighted;
+
+    [Header("Stats")]
+    /// <summary>
+    /// The current item type
+    /// </summary>
+    public ItemType type;
+
+    /// <summary>
+    /// The items quality
+    /// </summary>
+    public Quality quality;
 
     /// <summary>
     /// The max amount of times the item can stack
@@ -46,6 +58,12 @@ public class Item : MonoBehaviour
     /// </summary>
     public string description;
 
+    [Header("Text Formatting")]
+    public float NameTextSize = 16.0f;
+    //public float Nam
+    public float DescriptionTextSize = 14.0f;
+    public float StatsTextSize = 14.0f;
+
     /// <summary>
     /// Uses the item
     /// </summary>
@@ -60,7 +78,6 @@ public class Item : MonoBehaviour
                 Debug.Log("I just used a health potion");
                 break;
         }
-
     }
 
     public string GetTooltip()
@@ -74,7 +91,7 @@ public class Item : MonoBehaviour
             newLine = "\n";
         }
 
-        switch (quality) //Sets the color accodring to the quality of the item
+        switch (quality) //Sets the color according to the quality of the item
         {
             case Quality.COMMON:
                 color = "white";
@@ -99,23 +116,39 @@ public class Item : MonoBehaviour
         //Adds the stats to the string if the value is larger than 0. If the value is 0 we dont need to show it on the tooltip
         if (strength > 0)
         {
-            stats += "\n+" + strength.ToString() + " Strength";
+            stats += "\n<color=" + itemCustomiser.StatsTextColor + "+" + strength.ToString() + " Strength</color>";
+        }
+        else if (strength < 0)
+        {
+            stats += "\n<color=" + itemCustomiser.StatsTextNegativeColor + ">" + strength.ToString() + " Strength</color>";
         }
         if (intellect > 0)
         {
-            stats += "\n+" + intellect.ToString() + " Intellect";
+            stats += "\n<color=" + itemCustomiser.StatsTextColor + "+" + intellect.ToString() + " Intellect</color>";
+        }
+        else if (intellect < 0)
+        {
+            stats += "\n<color=" + itemCustomiser.StatsTextNegativeColor + ">" + intellect.ToString() + " Intellect</color>";
         }
         if (agility > 0)
         {
-            stats += "\n+" + agility.ToString() + " Agility";
+            stats += "\n<color=" + itemCustomiser.StatsTextColor + "+" + agility.ToString() + " Agility</color>";
+        }
+        else if (agility < 0)
+        {
+            stats += "\n<color=" + itemCustomiser.StatsTextNegativeColor + ">" + agility.ToString() + " Agility</color>";
         }
         if (stamina > 0)
         {
-            stats += "\n+" + stamina.ToString() + " Stamina";
+            stats += "\n<color=" + itemCustomiser.StatsTextColor + "+" + stamina.ToString() + " Stamina</color>";
+        }
+        if (stamina < 0)
+        {
+            stats += "\n<color=" + itemCustomiser.StatsTextNegativeColor + ">" + stamina.ToString() + " Stamina</color>";
         }
 
-        //Returns the formattet string
-        return string.Format("<color=" + color + "><size=16>{0}</size></color><size=14><i><color=lime>" + newLine + "{1}</color></i>{2}</size>", itemName, description, stats);
+        //Returns the formated string
+        return string.Format("<color=" + color + "><size=" + itemCustomiser.NameTextSize + ">{0}</size></color><size=" + itemCustomiser.DescriptionTextSize + "><i><color=" + itemCustomiser.DescriptionTextColor + ">" + newLine + "{1}</color></size></i><size=" + itemCustomiser.StatsTextSize + "{2}</size>", itemName, description, stats);
     }
 
 }
