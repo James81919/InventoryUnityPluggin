@@ -14,8 +14,6 @@ public struct EffectType
 
 public class Item : MonoBehaviour
 {
-    private ItemCustomizer itemCustomiser;
-
     [Header("Sprites")]
     /// <summary>
     /// The item's neutral sprite
@@ -60,9 +58,11 @@ public class Item : MonoBehaviour
 
     [Header("Text Formatting")]
     public float NameTextSize = 16.0f;
-    //public float Nam
     public float DescriptionTextSize = 14.0f;
+    public string DescriptionTextColor = "lime";
     public float StatsTextSize = 14.0f;
+    public string StatsTextPositiveColor = "White";
+    public string StatsTextNegativeColor = "red";
 
     /// <summary>
     /// Uses the item
@@ -116,39 +116,39 @@ public class Item : MonoBehaviour
         //Adds the stats to the string if the value is larger than 0. If the value is 0 we dont need to show it on the tooltip
         if (strength > 0)
         {
-            stats += "\n<color=" + itemCustomiser.StatsTextColor + "+" + strength.ToString() + " Strength</color>";
+            stats += "\n+" + strength.ToString() + " Strength";
         }
         else if (strength < 0)
         {
-            stats += "\n<color=" + itemCustomiser.StatsTextNegativeColor + ">" + strength.ToString() + " Strength</color>";
+            stats += "\n" + strength.ToString() + " Strength";
         }
         if (intellect > 0)
         {
-            stats += "\n<color=" + itemCustomiser.StatsTextColor + "+" + intellect.ToString() + " Intellect</color>";
+            stats += "\n+" + intellect.ToString() + " Intellect";
         }
         else if (intellect < 0)
         {
-            stats += "\n<color=" + itemCustomiser.StatsTextNegativeColor + ">" + intellect.ToString() + " Intellect</color>";
+            stats += "\n" + intellect.ToString() + " Intellect";
         }
         if (agility > 0)
         {
-            stats += "\n<color=" + itemCustomiser.StatsTextColor + "+" + agility.ToString() + " Agility</color>";
+            stats += "\n+" + agility.ToString() + " Agility";
         }
         else if (agility < 0)
         {
-            stats += "\n<color=" + itemCustomiser.StatsTextNegativeColor + ">" + agility.ToString() + " Agility</color>";
+            stats += "\n>" + agility.ToString() + " Agility";
         }
         if (stamina > 0)
         {
-            stats += "\n<color=" + itemCustomiser.StatsTextColor + "+" + stamina.ToString() + " Stamina</color>";
+            stats += "\n+" + stamina.ToString() + " Stamina";
         }
         if (stamina < 0)
         {
-            stats += "\n<color=" + itemCustomiser.StatsTextNegativeColor + ">" + stamina.ToString() + " Stamina</color>";
+            stats += "\n>" + stamina.ToString() + " Stamina";
         }
 
         //Returns the formated string
-        return string.Format("<color=" + color + "><size=" + itemCustomiser.NameTextSize + ">{0}</size></color><size=" + itemCustomiser.DescriptionTextSize + "><i><color=" + itemCustomiser.DescriptionTextColor + ">" + newLine + "{1}</color></size></i><size=" + itemCustomiser.StatsTextSize + "{2}</size>", itemName, description, stats);
+        return string.Format("<color=" + color + "><size=" +  NameTextSize + ">{0}</size></color><size=" + DescriptionTextSize + "><i><color=" + DescriptionTextColor + ">" + newLine + "{1}</color></i></size><size=" + StatsTextSize + "{2}</size>", itemName, description, stats);
     }
 
 }
