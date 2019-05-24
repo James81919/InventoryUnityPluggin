@@ -586,6 +586,16 @@ PrefabInstance:
       propertyPath: NameTextSize
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 114118759301956634, guid: 9a929dc96dbcb6b4a883dd8d24feed8a,
+        type: 3}
+      propertyPath: StatsTextPositiveColor
+      value: white
+      objectReference: {fileID: 0}
+    - target: {fileID: 114118759301956634, guid: 9a929dc96dbcb6b4a883dd8d24feed8a,
+        type: 3}
+      propertyPath: type
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a929dc96dbcb6b4a883dd8d24feed8a, type: 3}
 --- !u!1001 &857584700

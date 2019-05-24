@@ -57,17 +57,45 @@ public class Item : MonoBehaviour
     public string description;
 
     [Header("Text Formatting")]
+    /// <summary>
+    /// The font size of the item name text
+    /// </summary>
     public float NameTextSize = 16.0f;
+
+    /// <summary>
+    /// Determines whether or not the description text wraps
+    /// </summary>
+    public bool WrapDescription = false;
+
+    /// <summary>
+    /// The font size of the item description text
+    /// </summary>
     public float DescriptionTextSize = 14.0f;
+
+    /// <summary>
+    /// The font color of the item description text
+    /// </summary>
     public string DescriptionTextColor = "lime";
+
+    /// <summary>
+    /// The font size of the item stats text
+    /// </summary>
     public float StatsTextSize = 14.0f;
+
+    /// <summary>
+    /// The font color the item stats text for positive values
+    /// </summary>
     public string StatsTextPositiveColor = "White";
+
+    /// <summary>
+    /// The font color the item stats text for negative values
+    /// </summary>
     public string StatsTextNegativeColor = "red";
 
     /// <summary>
     /// Uses the item
     /// </summary>
-    public void Use()
+    public virtual void Use()
     {
         switch (type) //Checks which kind of item this is
         {
@@ -116,39 +144,38 @@ public class Item : MonoBehaviour
         //Adds the stats to the string if the value is larger than 0. If the value is 0 we dont need to show it on the tooltip
         if (strength > 0)
         {
-            stats += "\n+" + strength.ToString() + " Strength";
+            stats += "\n<color=" + StatsTextPositiveColor + ">+" + strength.ToString() + " Strength</color>";
         }
         else if (strength < 0)
         {
-            stats += "\n" + strength.ToString() + " Strength";
+            stats += "\n<color=" + StatsTextNegativeColor + ">" + strength.ToString() + " Strength</color>";
         }
         if (intellect > 0)
         {
-            stats += "\n+" + intellect.ToString() + " Intellect";
+            stats += "\n<color=" + StatsTextPositiveColor + ">+" + intellect.ToString() + " Intellect</color>";
         }
         else if (intellect < 0)
         {
-            stats += "\n" + intellect.ToString() + " Intellect";
+            stats += "\n<color=" + StatsTextNegativeColor + ">" + intellect.ToString() + " Intellect</color>";
         }
         if (agility > 0)
         {
-            stats += "\n+" + agility.ToString() + " Agility";
+            stats += "\n<color=" + StatsTextPositiveColor + ">+" + agility.ToString() + " Agility</color>";
         }
         else if (agility < 0)
         {
-            stats += "\n>" + agility.ToString() + " Agility";
+            stats += "\n<color=" + StatsTextNegativeColor + ">" + agility.ToString() + " Agility</color>";
         }
         if (stamina > 0)
         {
-            stats += "\n+" + stamina.ToString() + " Stamina";
+            stats += "\n<color=" + StatsTextPositiveColor + ">+" + stamina.ToString() + " Stamina</color>";
         }
         if (stamina < 0)
         {
-            stats += "\n>" + stamina.ToString() + " Stamina";
+            stats += "\n<color=" + StatsTextNegativeColor + ">" + stamina.ToString() + " Stamina</color>";
         }
 
         //Returns the formated string
-        return string.Format("<color=" + color + "><size=" +  NameTextSize + ">{0}</size></color><size=" + DescriptionTextSize + "><i><color=" + DescriptionTextColor + ">" + newLine + "{1}</color></i></size><size=" + StatsTextSize + "{2}</size>", itemName, description, stats);
+        return string.Format("<color=" + color + "><size=" +  NameTextSize + ">{0}</size></color><size=" + DescriptionTextSize + "><i><color=" + DescriptionTextColor + ">" + newLine + "{1}</color></i></size><size=" + StatsTextSize + ">{2}</size>", itemName, description, stats);
     }
-
 }
