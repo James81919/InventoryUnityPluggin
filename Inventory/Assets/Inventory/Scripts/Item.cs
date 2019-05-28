@@ -1,31 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
-using System;
 
-public enum ItemType {MANA, HEALTH, WEAPON};
-public enum Quality {COMMON,UNCOMMON,RARE,EPIC,LEGENDARY,ARTIFACT}
-
-public struct EffectType
-{
-    string name;
-    int value;
-}
+public enum ItemType { MANA, HEALTH, WEAPON };
+public enum Quality { COMMON, UNCOMMON, RARE, EPIC, LEGENDARY, ARTIFACT }
 
 public class Item : MonoBehaviour
 {
-    [Header("Sprites")]
-    /// <summary>
-    /// The item's neutral sprite
-    /// </summary>
-    public Sprite spriteNeutral;
-
-    /// <summary>
-    /// The item's highlighted sprite
-    /// </summary>
-    public Sprite spriteHighlighted;
-
-    [Header("Stats")]
     /// <summary>
     /// The current item type
     /// </summary>
@@ -35,6 +15,16 @@ public class Item : MonoBehaviour
     /// The items quality
     /// </summary>
     public Quality quality;
+
+    /// <summary>
+    /// The item's neutral sprite
+    /// </summary>
+    public Sprite spriteNeutral;
+
+    /// <summary>
+    /// The item's highlighted sprite
+    /// </summary>
+    public Sprite spriteHighlighted;
 
     /// <summary>
     /// The max amount of times the item can stack
@@ -56,46 +46,10 @@ public class Item : MonoBehaviour
     /// </summary>
     public string description;
 
-    [Header("Text Formatting")]
-    /// <summary>
-    /// The font size of the item name text
-    /// </summary>
-    public float NameTextSize = 16.0f;
-
-    /// <summary>
-    /// Determines whether or not the description text wraps
-    /// </summary>
-    public bool WrapDescription = false;
-
-    /// <summary>
-    /// The font size of the item description text
-    /// </summary>
-    public float DescriptionTextSize = 14.0f;
-
-    /// <summary>
-    /// The font color of the item description text
-    /// </summary>
-    public string DescriptionTextColor = "lime";
-
-    /// <summary>
-    /// The font size of the item stats text
-    /// </summary>
-    public float StatsTextSize = 14.0f;
-
-    /// <summary>
-    /// The font color the item stats text for positive values
-    /// </summary>
-    public string StatsTextPositiveColor = "White";
-
-    /// <summary>
-    /// The font color the item stats text for negative values
-    /// </summary>
-    public string StatsTextNegativeColor = "red";
-
     /// <summary>
     /// Uses the item
     /// </summary>
-    public virtual void Use()
+    public void Use()
     {
         switch (type) //Checks which kind of item this is
         {
@@ -106,6 +60,7 @@ public class Item : MonoBehaviour
                 Debug.Log("I just used a health potion");
                 break;
         }
+
     }
 
     public string GetTooltip()
@@ -119,7 +74,7 @@ public class Item : MonoBehaviour
             newLine = "\n";
         }
 
-        switch (quality) //Sets the color according to the quality of the item
+        switch (quality) //Sets the color accodring to the quality of the item
         {
             case Quality.COMMON:
                 color = "white";
@@ -144,38 +99,62 @@ public class Item : MonoBehaviour
         //Adds the stats to the string if the value is larger than 0. If the value is 0 we dont need to show it on the tooltip
         if (strength > 0)
         {
-            stats += "\n<color=" + StatsTextPositiveColor + ">+" + strength.ToString() + " Strength</color>";
-        }
-        else if (strength < 0)
-        {
-            stats += "\n<color=" + StatsTextNegativeColor + ">" + strength.ToString() + " Strength</color>";
+            stats += "\n+" + strength.ToString() + " Strength";
         }
         if (intellect > 0)
         {
-            stats += "\n<color=" + StatsTextPositiveColor + ">+" + intellect.ToString() + " Intellect</color>";
-        }
-        else if (intellect < 0)
-        {
-            stats += "\n<color=" + StatsTextNegativeColor + ">" + intellect.ToString() + " Intellect</color>";
+            stats += "\n+" + intellect.ToString() + " Intellect";
         }
         if (agility > 0)
         {
-            stats += "\n<color=" + StatsTextPositiveColor + ">+" + agility.ToString() + " Agility</color>";
-        }
-        else if (agility < 0)
-        {
-            stats += "\n<color=" + StatsTextNegativeColor + ">" + agility.ToString() + " Agility</color>";
+            stats += "\n+" + agility.ToString() + " Agility";
         }
         if (stamina > 0)
         {
-            stats += "\n<color=" + StatsTextPositiveColor + ">+" + stamina.ToString() + " Stamina</color>";
-        }
-        if (stamina < 0)
-        {
-            stats += "\n<color=" + StatsTextNegativeColor + ">" + stamina.ToString() + " Stamina</color>";
+            stats += "\n+" + stamina.ToString() + " Stamina";
         }
 
-        //Returns the formated string
-        return string.Format("<color=" + color + "><size=" +  NameTextSize + ">{0}</size></color><size=" + DescriptionTextSize + "><i><color=" + DescriptionTextColor + ">" + newLine + "{1}</color></i></size><size=" + StatsTextSize + ">{2}</size>", itemName, description, stats);
+        //Returns the formattet string
+        return string.Format("<color=" + color + "><size=16>{0}</size></color><size=14><i><color=lime>" + newLine + "{1}</color></i>{2}</size>", itemName, description, stats);
     }
+
+    public void SetStats(Item item)
+    {
+        this.type = item.type;
+
+        this.quality = item.quality;
+
+        this.spriteNeutral = item.spriteNeutral;
+
+        this.spriteHighlighted = item.spriteHighlighted;
+
+        this.maxSize = item.maxSize;
+
+        this.strength = item.strength;
+
+        this.intellect = item.intellect;
+
+        this.agility = item.agility;
+
+        this.stamina = item.stamina;
+
+        this.itemName = item.itemName;
+
+        this.description = item.description;
+
+        switch (type)
+        {
+            case ItemType.MANA:
+                GetComponent<Renderer>().material.color = Color.blue;
+                break;
+            case ItemType.HEALTH:
+                GetComponent<Renderer>().material.color = Color.red;
+                break;
+            case ItemType.WEAPON:
+                GetComponent<Renderer>().material.color = Color.green;
+
+                break;
+        }
+    }
+
 }

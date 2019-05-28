@@ -28,6 +28,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     /// </summary>
     public Sprite slotHighlight;
 
+    private CanvasGroup canvasGroup;
+
     #endregion
 
     #region properties
@@ -54,9 +56,9 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     /// </summary>
     public bool IsAvailable
     {
-        get {return CurrentItem.maxSize > items.Count; }
+        get { return CurrentItem.maxSize > items.Count; }
     }
-    
+
     /// <summary>
     /// Returns the current item in the stack
     /// </summary>
@@ -74,8 +76,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     }
 
     // Use this for initialization
-	void Start () 
-    {   
+    void Start()
+    {
         //Creates a reference to the slot slot's recttransform
         RectTransform slotRect = GetComponent<RectTransform>();
 
@@ -92,8 +94,13 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         //Sets the actual size of the txtRect
         txtRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, slotRect.sizeDelta.x);
         txtRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotRect.sizeDelta.y);
-	}
-	
+
+        if (transform.parent != null)
+        {
+            canvasGroup = transform.parent.GetComponent<CanvasGroup>();
+        }
+    }
+
     /// <summary>
     /// Adds a single item to th inventory
     /// </summary>
@@ -157,7 +164,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler
             {
                 ChangeSprite(slotEmpty, slotHighlight); //Changes the sprite to empty if the slot is empty
 
-                Inventory.EmptySlots++; //Adds 1 to the amount of empty slots
+                transform.parent.GetComponent<Inventory>().EmptySlots++; //Adds 1 to the amount of empty slots
+
             }
         }
     }
@@ -166,7 +174,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     /// Clears the slot
     /// </summary>
     public void ClearSlot()
-    {   
+    {
         //Clears all items on the slot
         items.Clear();
 
@@ -223,7 +231,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         //If the right mousebutton was clicked, and we aren't moving an item and the inventory is visible
-        if (eventData.button == PointerEventData.InputButton.Right && !GameObject.Find("Hover") && Inventory.CanvasGroup.alpha > 0)
+        if (eventData.button == PointerEventData.InputButton.Right && !GameObject.Find("Hover") && canvasGroup.alpha > 0)
         {
             //Uses an item on the slot
             UseItem();
@@ -235,16 +243,16 @@ public class Slot : MonoBehaviour, IPointerClickHandler
             Vector2 position;
 
             //Translates the mouse position to onscreen coords so that we can spawn the dialog at the correct position
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(Inventory.Instance.canvas.transform as RectTransform, Input.mousePosition, Inventory.Instance.canvas.worldCamera, out position);
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(InventoryManager.Instance.canvas.transform as RectTransform, Input.mousePosition, InventoryManager.Instance.canvas.worldCamera, out position);
 
             //Shows the dialog
-            Inventory.Instance.selectStackSize.SetActive(true);
+            InventoryManager.Instance.selectStackSize.SetActive(true);
 
             //Sets the position
-            Inventory.Instance.selectStackSize.transform.position = Inventory.Instance.canvas.transform.TransformPoint(position);
+            InventoryManager.Instance.selectStackSize.transform.position = InventoryManager.Instance.canvas.transform.TransformPoint(position);
 
             //Tell the inventory the item count on the selected slot
-            Inventory.Instance.SetStackInfo(items.Count);
+            InventoryManager.Instance.SetStackInfo(items.Count);
         }
     }
 }

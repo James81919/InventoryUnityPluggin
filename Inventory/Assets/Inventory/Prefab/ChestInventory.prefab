@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8417553415091631155
+--- !u!1 &1314885350081256940
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,26 +8,26 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8417553415105544019}
-  - component: {fileID: 8417553415105203219}
-  - component: {fileID: 8417553415097550739}
-  - component: {fileID: 8417553415097645139}
-  - component: {fileID: 8417553414846295670}
-  - component: {fileID: 8417553414846295671}
+  - component: {fileID: 1314885350058956428}
+  - component: {fileID: 1314885350059156940}
+  - component: {fileID: 1314885350071004748}
+  - component: {fileID: 1314885350071046540}
+  - component: {fileID: 1314885348517907287}
+  - component: {fileID: 1314885348517907280}
   m_Layer: 5
-  m_Name: Inventory 1
+  m_Name: ChestInventory
   m_TagString: Inventory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &8417553415105544019
+--- !u!224 &1314885350058956428
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8417553415091631155}
+  m_GameObject: {fileID: 1314885350081256940}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -37,24 +37,24 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 44, y: -24.900024}
+  m_AnchoredPosition: {x: 307.8, y: -24.9}
   m_SizeDelta: {x: 102.5, y: 104.7}
   m_Pivot: {x: -0.0000000055879354, y: 0.9999998}
---- !u!222 &8417553415105203219
+--- !u!222 &1314885350059156940
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8417553415091631155}
+  m_GameObject: {fileID: 1314885350081256940}
   m_CullTransparentMesh: 0
---- !u!114 &8417553415097550739
+--- !u!114 &1314885350071004748
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8417553415091631155}
+  m_GameObject: {fileID: 1314885350081256940}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
@@ -77,43 +77,43 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &8417553415097645139
+--- !u!114 &1314885350071046540
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8417553415091631155}
+  m_GameObject: {fileID: 1314885350081256940}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6943986857776d74283920f508184b19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rows: 5
-  slots: 10
+  slots: 20
   slotPaddingLeft: 2
   slotPaddingTop: 2
   slotSize: 25
   fadeTime: 1
---- !u!225 &8417553414846295670
+--- !u!225 &1314885348517907287
 CanvasGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8417553415091631155}
+  m_GameObject: {fileID: 1314885350081256940}
   m_Enabled: 1
   m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &8417553414846295671
+--- !u!114 &1314885348517907280
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8417553415091631155}
+  m_GameObject: {fileID: 1314885350081256940}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
@@ -124,7 +124,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 8417553415097645139}
+        - m_Target: {fileID: 1314885350071046540}
           m_MethodName: OnDrag
           m_Mode: 1
           m_Arguments:
@@ -141,7 +141,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 8417553415097645139}
+        - m_Target: {fileID: 1314885350071046540}
           m_MethodName: PointerEnter
           m_Mode: 1
           m_Arguments:
@@ -158,7 +158,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 8417553415097645139}
+        - m_Target: {fileID: 1314885350071046540}
           m_MethodName: PointerExit
           m_Mode: 1
           m_Arguments:
@@ -176,7 +176,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 8417553415097645139}
+        - m_Target: {fileID: 1314885350071046540}
           m_MethodName: OnDrag
           m_Mode: 1
           m_Arguments:
@@ -193,7 +193,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 8417553415097645139}
+        - m_Target: {fileID: 1314885350071046540}
           m_MethodName: PointerEnter
           m_Mode: 1
           m_Arguments:
@@ -210,7 +210,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 8417553415097645139}
+        - m_Target: {fileID: 1314885350071046540}
           m_MethodName: PointerExit
           m_Mode: 1
           m_Arguments:
