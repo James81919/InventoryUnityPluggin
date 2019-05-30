@@ -123,6 +123,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StackSizeBack
       objectReference: {fileID: 0}
+    - target: {fileID: 1816256843030232, guid: fa456161318f82a49a8782e4fc48082d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 224744727117393888, guid: fa456161318f82a49a8782e4fc48082d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1949,6 +1953,107 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1681260909
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4689337041233415549, guid: 06a5ebd11c563134bbd63fd7e11b6b1f,
+        type: 3}
+      propertyPath: m_Name
+      value: Sword (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689337041233344861, guid: 06a5ebd11c563134bbd63fd7e11b6b1f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -55.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689337041233344861, guid: 06a5ebd11c563134bbd63fd7e11b6b1f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -27
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689337041233344861, guid: 06a5ebd11c563134bbd63fd7e11b6b1f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 161.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689337041233344861, guid: 06a5ebd11c563134bbd63fd7e11b6b1f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689337041233344861, guid: 06a5ebd11c563134bbd63fd7e11b6b1f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689337041233344861, guid: 06a5ebd11c563134bbd63fd7e11b6b1f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689337041233344861, guid: 06a5ebd11c563134bbd63fd7e11b6b1f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689337041233344861, guid: 06a5ebd11c563134bbd63fd7e11b6b1f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689337041233344861, guid: 06a5ebd11c563134bbd63fd7e11b6b1f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689337041233344861, guid: 06a5ebd11c563134bbd63fd7e11b6b1f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689337041233344861, guid: 06a5ebd11c563134bbd63fd7e11b6b1f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689337041235639485, guid: 06a5ebd11c563134bbd63fd7e11b6b1f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 125fd793968dbe349bbaa99a50d3e381, type: 2}
+    - target: {fileID: 4689337041226502557, guid: 06a5ebd11c563134bbd63fd7e11b6b1f,
+        type: 3}
+      propertyPath: spriteNeutral
+      value: 
+      objectReference: {fileID: 21300000, guid: b8367eb893b7b63438338df425a377ff,
+        type: 3}
+    - target: {fileID: 4689337041226502557, guid: 06a5ebd11c563134bbd63fd7e11b6b1f,
+        type: 3}
+      propertyPath: spriteHighlighted
+      value: 
+      objectReference: {fileID: 21300000, guid: 198b3bac17de7bf40ab8eba70c8d7f3c,
+        type: 3}
+    - target: {fileID: 4689337041226502557, guid: 06a5ebd11c563134bbd63fd7e11b6b1f,
+        type: 3}
+      propertyPath: itemName
+      value: Awesome ChainSaw
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689337041226502557, guid: 06a5ebd11c563134bbd63fd7e11b6b1f,
+        type: 3}
+      propertyPath: description
+      value: This is a very awesome ChainSaw
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689337041226502557, guid: 06a5ebd11c563134bbd63fd7e11b6b1f,
+        type: 3}
+      propertyPath: strength
+      value: 500
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06a5ebd11c563134bbd63fd7e11b6b1f, type: 3}
 --- !u!114 &1717810389 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114597261865450740, guid: 3590256a29dc0b64b9bab1fd4d6bb1af,
