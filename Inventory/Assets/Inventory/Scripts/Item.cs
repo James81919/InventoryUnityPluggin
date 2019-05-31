@@ -46,6 +46,8 @@ public class Item : MonoBehaviour
     /// </summary>
     public string description;
 
+    public Material colormaterial;
+
     /// <summary>
     /// Uses the item
     /// </summary>
@@ -142,19 +144,13 @@ public class Item : MonoBehaviour
 
         this.description = item.description;
 
-        switch (type)
-        {
-            case ItemType.MANA:
-                GetComponent<Renderer>().material.color = Color.blue;
-                break;
-            case ItemType.HEALTH:
-                GetComponent<Renderer>().material.color = Color.red;
-                break;
-            case ItemType.WEAPON:
-                GetComponent<Renderer>().material.color = Color.green;
+        this.colormaterial = item.colormaterial;
 
-                break;
+
+       GetComponent<Renderer>().material.color = colormaterial.color;
+
+  
         }
     }
 
-}
+

@@ -1000,6 +1000,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8101560516946863670, guid: de6edd329af47564cb43baa306d12c49,
+        type: 3}
+      propertyPath: colormaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 7b7bf51cb00adba40a2146dec06ca8c9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de6edd329af47564cb43baa306d12c49, type: 3}
 --- !u!1001 &685509478
@@ -1166,6 +1171,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5755403956894254949, guid: e78bd56fbf1e0c74a991ce013b78ba90,
+        type: 3}
+      propertyPath: colormaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 6e63ac36489ff5943a9055a07b9352fd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e78bd56fbf1e0c74a991ce013b78ba90, type: 3}
 --- !u!1001 &933532765
@@ -1238,6 +1248,11 @@ PrefabInstance:
     - target: {fileID: 4689337041235639485, guid: 06a5ebd11c563134bbd63fd7e11b6b1f,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 125fd793968dbe349bbaa99a50d3e381, type: 2}
+    - target: {fileID: 4689337041226502557, guid: 06a5ebd11c563134bbd63fd7e11b6b1f,
+        type: 3}
+      propertyPath: colormaterial
       value: 
       objectReference: {fileID: 2100000, guid: 125fd793968dbe349bbaa99a50d3e381, type: 2}
     m_RemovedComponents: []
@@ -1963,7 +1978,7 @@ PrefabInstance:
     - target: {fileID: 4689337041233415549, guid: 06a5ebd11c563134bbd63fd7e11b6b1f,
         type: 3}
       propertyPath: m_Name
-      value: Sword (1)
+      value: ChainSaw
       objectReference: {fileID: 0}
     - target: {fileID: 4689337041233344861, guid: 06a5ebd11c563134bbd63fd7e11b6b1f,
         type: 3}
@@ -2024,7 +2039,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 125fd793968dbe349bbaa99a50d3e381, type: 2}
+      objectReference: {fileID: 2100000, guid: e29b760b9eaf07746b5b39bc03052324, type: 2}
     - target: {fileID: 4689337041226502557, guid: 06a5ebd11c563134bbd63fd7e11b6b1f,
         type: 3}
       propertyPath: spriteNeutral
@@ -2052,6 +2067,11 @@ PrefabInstance:
       propertyPath: strength
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 4689337041226502557, guid: 06a5ebd11c563134bbd63fd7e11b6b1f,
+        type: 3}
+      propertyPath: colormaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: e29b760b9eaf07746b5b39bc03052324, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06a5ebd11c563134bbd63fd7e11b6b1f, type: 3}
 --- !u!114 &1717810389 stripped
