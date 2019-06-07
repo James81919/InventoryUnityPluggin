@@ -48,6 +48,15 @@ public class Item : MonoBehaviour
 
     public Material colormaterial;
 
+    private float NameTextSize;
+
+    private float DescriptionTextSize;
+    private string DescriptionTextColor;
+
+    private float StatsTextSize;
+    private string StatsTextColor;
+    private string StatsTextNegativeColor;
+
     /// <summary>
     /// Uses the item
     /// </summary>
@@ -67,57 +76,80 @@ public class Item : MonoBehaviour
 
     public string GetTooltip()
     {
+        NameTextSize = PlayerPrefs.GetFloat("InventoryNameTextSize");
+        DescriptionTextSize = PlayerPrefs.GetFloat("InventoryDescriptionTextSize");
+        DescriptionTextColor = PlayerPrefs.GetString("IntentoryDescriptionTextColor");
+        StatsTextSize = PlayerPrefs.GetFloat("InventoryStatsTextSize");
+        StatsTextColor = PlayerPrefs.GetString("InventoryStatsTextColor");
+        StatsTextNegativeColor = PlayerPrefs.GetString("InventoryStatsTextNegativeColor");
+
         string stats = string.Empty;  //Resets the stats info
         string color = string.Empty;  //Resets the color info
         string newLine = string.Empty; //Resets the new line
 
-        if (description != string.Empty) //Creates a newline if the item has a description, this is done to makes sure that the headline and the describion isn't on the same line
+        if (description != string.Empty) //Creates a newline if the item has a description, this is done to makes sure that the headline and the description isn't on the same line
         {
             newLine = "\n";
         }
 
-        switch (quality) //Sets the color accodring to the quality of the item
+        switch (quality) //Sets the color according to the quality of the item
         {
             case Quality.COMMON:
-                color = "white";
+                color = PlayerPrefs.GetString("InventoryQualityColorCommon");
                 break;
             case Quality.UNCOMMON:
-                color = "lime";
+                color = PlayerPrefs.GetString("InventoryQualityColorUncommon");
                 break;
             case Quality.RARE:
-                color = "navy";
+                color = PlayerPrefs.GetString("InventoryQualityColorRare");
                 break;
             case Quality.EPIC:
-                color = "magenta";
+                color = PlayerPrefs.GetString("InventoryQualityColorEpic");
                 break;
             case Quality.LEGENDARY:
-                color = "orange";
+                color = PlayerPrefs.GetString("InventoryQualityColorLegendary");
                 break;
             case Quality.ARTIFACT:
-                color = "red";
+                color = PlayerPrefs.GetString("InventoryQualityColorArtifact");
                 break;
         }
 
-        //Adds the stats to the string if the value is larger than 0. If the value is 0 we dont need to show it on the tooltip
+        //Adds the stats to the string if the value is larger than 0. If the value is 0 we don't need to show it on the tooltip
         if (strength > 0)
         {
-            stats += "\n+" + strength.ToString() + " Strength";
+            stats += "\n<color=" + StatsTextColor + ">+" + strength.ToString() + " Strength </color>";
+        }
+        else if (strength < 0)
+        {
+            stats += "\n<color=" + StatsTextNegativeColor + ">" + strength.ToString() + " Strength </color>";
         }
         if (intellect > 0)
         {
-            stats += "\n+" + intellect.ToString() + " Intellect";
+            stats += "\n<color=" + StatsTextColor + ">+" + strength.ToString() + " Intellect </color>";
+        }
+        else if (intellect < 0)
+        {
+            stats += "\n<color=" + StatsTextNegativeColor + ">" + strength.ToString() + " Intellect </color>";
         }
         if (agility > 0)
         {
-            stats += "\n+" + agility.ToString() + " Agility";
+            stats += "\n<color=" + StatsTextColor + ">+" + strength.ToString() + " Agility </color>";
+        }
+        else if (agility < 0)
+        {
+            stats += "\n<color=" + StatsTextNegativeColor + ">" + strength.ToString() + " Agility </color>";
         }
         if (stamina > 0)
         {
-            stats += "\n+" + stamina.ToString() + " Stamina";
+            stats += "\n<color=" + StatsTextColor + ">+" + strength.ToString() + " Stamina </color>";
+        }
+        else if (stamina < 0)
+        {
+            stats += "\n<color=" + StatsTextNegativeColor + ">" + strength.ToString() + " Stamina </color>";
         }
 
-        //Returns the formattet string
-        return string.Format("<color=" + color + "><size=16>{0}</size></color><size=14><i><color=lime>" + newLine + "{1}</color></i>{2}</size>", itemName, description, stats);
+        //Returns the formatted string
+        return string.Format("<color=" + color + "><size=" + NameTextSize + ">{0}</size></color><size=" + DescriptionTextSize + "><i><color=" + DescriptionTextColor + ">" + newLine + "{1}</color></i>{2}</size>", itemName, description, stats);
     }
 
     public void SetStats(Item item)

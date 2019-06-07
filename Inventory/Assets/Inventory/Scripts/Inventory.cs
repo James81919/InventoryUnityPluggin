@@ -297,11 +297,11 @@ public class Inventory : MonoBehaviour
     /// </summary>
     public void SaveInventory()
     {
-        string content = string.Empty; //Creates a string for containing infor about the items inside the inventory
+        string content = string.Empty; //Creates a string for containing info about the items inside the inventory
 
         for (int i = 0; i < allSlots.Count; i++) //Runs through all slots in the inventory
         {
-            Slot tmp = allSlots[i].GetComponent<Slot>(); //Careates a reference to the slot at the current index
+            Slot tmp = allSlots[i].GetComponent<Slot>(); //Creates a reference to the slot at the current index
 
             if (!tmp.IsEmpty) //We only want to save the info if the slot contains an item
             {
@@ -327,7 +327,7 @@ public class Inventory : MonoBehaviour
     /// </summary>
     public void LoadInventory()
     {
-        //Loads all the inventory's data from the playerprefs
+        //Loads all the inventory's data from the PlayerPrefs
         string content = PlayerPrefs.GetString(gameObject.name + "content");
 
         if (content != string.Empty)
@@ -338,17 +338,17 @@ public class Inventory : MonoBehaviour
             slotPaddingTop = PlayerPrefs.GetFloat(gameObject.name + "slotPaddingTop");
             slotSize = PlayerPrefs.GetFloat(gameObject.name + "slotSize");
 
-            //Sets the inventorys position
+            //Sets the inventory position
             inventoryRect.position = new Vector3(PlayerPrefs.GetFloat(gameObject.name + "xPos"), PlayerPrefs.GetFloat(gameObject.name + "yPos"), inventoryRect.position.z);
 
             //Recreates the inventory's layout
             CreateLayout();
 
-            //Splits the loaded content string into segments, so that each index inthe splitContent array contains information about a single slot
+            //Splits the loaded content string into segments, so that each index in the splitContent array contains information about a single slot
             //e.g[0]0-MANA-3
             string[] splitContent = content.Split(';');
 
-            //Runs through every single slot we have infor about -1 is to avoid an empty string error
+            //Runs through every single slot we have info about -1 is to avoid an empty string error
             for (int x = 0; x < splitContent.Length - 1; x++)
             {
                 //Splits the slot's information into single values, so that each index in the splitValues array contains info about a value
@@ -365,10 +365,10 @@ public class Inventory : MonoBehaviour
                 {
                     switch (type)
                     {
-                        case ItemType.MANA: //Adds a manapotion
+                        case ItemType.MANA: //Adds a mana potion
                             allSlots[index].GetComponent<Slot>().AddItem(InventoryManager.Instance.mana.GetComponent<Item>());
                             break;
-                        case ItemType.HEALTH://Adds a healthpotion
+                        case ItemType.HEALTH://Adds a health potion
                             allSlots[index].GetComponent<Slot>().AddItem(InventoryManager.Instance.health.GetComponent<Item>());
                             break;
                         case ItemType.WEAPON://Adds a weapon
