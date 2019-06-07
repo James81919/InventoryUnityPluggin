@@ -542,11 +542,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1565249016}
     m_Modifications:
-    - target: {fileID: 8417553415091631155, guid: ff2eff33442c79e4d9bf6a907b4b5391,
-        type: 3}
-      propertyPath: m_Name
-      value: Inventory
-      objectReference: {fileID: 0}
     - target: {fileID: 8417553415105544019, guid: ff2eff33442c79e4d9bf6a907b4b5391,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -651,6 +646,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.9999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 8417553415091631155, guid: ff2eff33442c79e4d9bf6a907b4b5391,
+        type: 3}
+      propertyPath: m_Name
+      value: Inventory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff2eff33442c79e4d9bf6a907b4b5391, type: 3}
@@ -1002,6 +1002,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8101560516946863670, guid: de6edd329af47564cb43baa306d12c49,
         type: 3}
+      propertyPath: stats.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8101560516946863670, guid: de6edd329af47564cb43baa306d12c49,
+        type: 3}
       propertyPath: colormaterial
       value: 
       objectReference: {fileID: 2100000, guid: 7b7bf51cb00adba40a2146dec06ca8c9, type: 2}
@@ -1176,6 +1181,11 @@ PrefabInstance:
       propertyPath: colormaterial
       value: 
       objectReference: {fileID: 2100000, guid: 6e63ac36489ff5943a9055a07b9352fd, type: 2}
+    - target: {fileID: 5755403956894254949, guid: e78bd56fbf1e0c74a991ce013b78ba90,
+        type: 3}
+      propertyPath: maxSize
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e78bd56fbf1e0c74a991ce013b78ba90, type: 3}
 --- !u!1001 &933532765
@@ -1482,11 +1492,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1565249016}
     m_Modifications:
-    - target: {fileID: 1314885350081256940, guid: 5d9f24333eca64d4cb324f7c102ec3fa,
-        type: 3}
-      propertyPath: m_Name
-      value: ChestInventory
-      objectReference: {fileID: 0}
     - target: {fileID: 1314885350058956428, guid: 5d9f24333eca64d4cb324f7c102ec3fa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1591,6 +1596,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.9999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 1314885350081256940, guid: 5d9f24333eca64d4cb324f7c102ec3fa,
+        type: 3}
+      propertyPath: m_Name
+      value: ChestInventory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d9f24333eca64d4cb324f7c102ec3fa, type: 3}

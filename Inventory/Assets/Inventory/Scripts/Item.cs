@@ -57,6 +57,15 @@ public class Item : MonoBehaviour
     private string StatsTextColor;
     private string StatsTextNegativeColor;
 
+    [System.Serializable]
+    public struct StatType
+    {
+        public string StatName;
+        public float StatValue;
+    }
+
+    public StatType[] statsList;
+
     /// <summary>
     /// Uses the item
     /// </summary>
@@ -115,6 +124,18 @@ public class Item : MonoBehaviour
         }
 
         //Adds the stats to the string if the value is larger than 0. If the value is 0 we don't need to show it on the tooltip
+        foreach (StatType statItem in statsList)
+        {
+            if (strength > 0)
+            {
+                stats += "\n<color=" + StatsTextColor + ">+" + statItem.StatValue.ToString() + statItem + "</color>";
+            }
+            else if (strength < 0)
+            {
+                stats += "\n<color=" + StatsTextNegativeColor + ">" + statItem.StatValue.ToString() + " Strength </color>";
+            }
+        }
+
         if (strength > 0)
         {
             stats += "\n<color=" + StatsTextColor + ">+" + strength.ToString() + " Strength </color>";
